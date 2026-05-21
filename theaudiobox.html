@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Audio Box — Professional Recording, Mixing, Mastering & Artist Development in Gloucestershire. Helping 250+ creatives make industry-ready music.">
+<title>The Audio Box | Professional Recording Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lime: #c8f060;
+    --lime-dim: #a8d040;
+    --black: #080808;
+    --charcoal: #111111;
+    --dark: #181818;
+    --mid: #242424;
+    --border: #2a2a2a;
+    --white: #f0f0f0;
+    --grey: #888;
+    --wa-green: #25d366;
+    --wa-dark: #128c7e;
+    --radius: 6px;
+    --nav-h: 70px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text span { color: var(--lime); }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--lime); }
+
+  .nav-cta {
+    background: var(--lime);
+    color: var(--black) !important;
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover { background: #b0d840 !important; transform: translateY(-1px); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px;
+  }
+
+  .hamburger span {
+    width: 24px; height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed; top: var(--nav-h); left: 0; right: 0;
+    background: rgba(8,8,8,0.98);
+    backdrop-filter: blur(20px);
+    padding: 24px 5% 32px;
+    z-index: 99;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column; gap: 0;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey); text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; margin-top: 12px; }
+  .mobile-menu a:hover { color: var(--lime); }
+
+  .mobile-menu .m-cta {
+    background: var(--lime); color: var(--black) !important;
+    border-radius: var(--radius); padding: 14px 24px;
+    text-align: center; font-weight: 700 !important;
+    border-bottom: none !important;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding-left: 5%; padding-right: 5%;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(200,240,96,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(200,240,96,0.04) 0%, transparent 50%),
+      linear-gradient(180deg, #080808 0%, #0f0f0f 50%, #080808 100%);
+    z-index: 0;
+  }
+
+  /* SVG wave background */
+  .hero-wave {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 120px; opacity: 0.08; z-index: 0;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(200,240,96,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,240,96,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  /* animated mic circles */
+  .hero-circles {
+    position: absolute; inset: 0; z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-circles::before, .hero-circles::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(200,240,96,0.08);
+    animation: pulse-ring 4s ease-out infinite;
+  }
+
+  .hero-circles::before {
+    width: 600px; height: 600px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-circles::after {
+    width: 900px; height: 900px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse-ring {
+    0% { opacity: 0.3; transform: translate(-50%,-50%) scale(0.85); }
+    100% { opacity: 0; transform: translate(-50%,-50%) scale(1.1); }
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 820px; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,240,96,0.1);
+    border: 1px solid rgba(200,240,96,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--lime);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fade-up 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--lime);
+    border-radius: 50%;
+    animation: blink 1.5s ease infinite;
+  }
+
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    animation: fade-up 0.8s 0.15s ease both;
+  }
+
+  h1 .line1 { display: block; color: var(--white); }
+  h1 .line2 { display: block; color: var(--lime); }
+  h1 .line3 { display: block; color: var(--white); font-size: 0.65em; font-weight: 600; letter-spacing: 0.06em; }
+
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: var(--grey);
+    max-width: 540px;
+    margin: 0 auto 36px;
+    animation: fade-up 0.8s 0.3s ease both;
+  }
+
+  .hero-ctas {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+    margin-bottom: 52px;
+    animation: fade-up 0.8s 0.45s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--lime);
+    color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    border: none; cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #b0d840;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,240,96,0.25);
+  }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--lime);
+    color: var(--lime);
+    transform: translateY(-2px);
+  }
+
+  .trust-strip {
+    display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+    animation: fade-up 0.8s 0.6s ease both;
+  }
+
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .trust-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: var(--lime);
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    text-align: left;
+  }
+
+  .trust-sep {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+    align-self: center;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* waveform decoration */
+  .hero-waveform {
+    position: absolute; bottom: 40px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; align-items: center; gap: 4px;
+    opacity: 0.3; z-index: 1;
+  }
+
+  .wvbar {
+    width: 3px; border-radius: 2px;
+    background: var(--lime);
+    animation: wave-dance 1.2s ease-in-out infinite alternate;
+  }
+
+  @keyframes wave-dance {
+    from { height: 8px; }
+    to { height: var(--h); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 5%; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1; max-width: 40px;
+    height: 1px;
+    background: var(--lime);
+    opacity: 0.5;
+  }
+
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+
+  h2 em { font-style: normal; color: var(--lime); }
+
+  .body-text {
+    color: var(--grey);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--charcoal); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--dark);
+    min-height: 380px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    border: 1px solid var(--border);
+  }
+
+  .about-visual svg { width: 70%; max-width: 260px; }
+
+  .about-stat-row {
+    display: flex; gap: 24px; margin-top: 28px;
+  }
+
+  .about-stat {
+    text-align: center;
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    flex: 1;
+  }
+
+  .about-stat-n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--lime);
+    line-height: 1;
+    display: block;
+  }
+
+  .about-stat-l {
+    font-size: 0.72rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .genre-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 24px;
+  }
+
+  .chip {
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.05em;
+    color: var(--grey);
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .chip:hover { border-color: var(--lime); color: var(--lime); }
+  .chip.active { border-color: var(--lime); color: var(--lime); }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--black); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+  }
+
+  .service-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lime), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover { border-color: rgba(200,240,96,0.3); transform: translateY(-4px); }
+  .service-card:hover::before { opacity: 1; }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    background: rgba(200,240,96,0.1);
+    border: 1px solid rgba(200,240,96,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--white);
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+
+  .service-list li {
+    font-size: 0.82rem;
+    color: #aaa;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+
+  .service-list li::before {
+    content: '→';
+    color: var(--lime);
+    flex-shrink: 0;
+  }
+
+  .service-price {
+    margin-top: 20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--lime);
+    letter-spacing: 0.04em;
+  }
+
+  .price-badge {
+    display: inline-block;
+    background: rgba(200,240,96,0.15);
+    border: 1px solid rgba(200,240,96,0.3);
+    color: var(--lime);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── BUNDLE ─── */
+  #bundle { background: var(--charcoal); }
+
+  .bundle-card {
+    max-width: 680px;
+    margin: 50px auto 0;
+    background: var(--dark);
+    border: 1px solid rgba(200,240,96,0.3);
+    border-radius: 16px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .bundle-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(200,240,96,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .most-popular {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--lime);
+    color: var(--black);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .most-popular::before { content: '★'; font-size: 0.7rem; }
+
+  .bundle-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .bundle-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    color: var(--lime);
+    line-height: 1;
+    margin: 16px 0;
+  }
+
+  .bundle-includes {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 24px auto;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+
+  .bundle-includes li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+
+  .bundle-includes li::before {
+    content: '✓';
+    color: var(--lime);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── REVIEWS ─── */
+  #reviews { background: var(--black); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 50px;
+  }
+
+  .review-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .review-card:hover { border-color: rgba(200,240,96,0.2); }
+
+  .review-stars {
+    color: var(--lime);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .review-text {
+    font-size: 0.92rem;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .review-text::before { content: '"'; color: var(--lime); font-size: 1.5rem; line-height: 0; vertical-align: -4px; }
+  .review-text::after { content: '"'; color: var(--lime); font-size: 1.5rem; line-height: 0; vertical-align: -4px; }
+
+  .reviewer {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  .reviewer-av {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--mid);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--lime);
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--white);
+  }
+
+  .reviewer-tag {
+    font-size: 0.72rem;
+    color: var(--grey);
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--charcoal); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+    margin-top: 50px;
+  }
+
+  .gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--dark);
+    border: 1px solid var(--border);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+
+  .gallery-item:hover { transform: scale(1.02); }
+
+  .gallery-item:nth-child(1) { grid-column: span 7; min-height: 280px; }
+  .gallery-item:nth-child(2) { grid-column: span 5; min-height: 280px; }
+  .gallery-item:nth-child(3) { grid-column: span 4; min-height: 200px; }
+  .gallery-item:nth-child(4) { grid-column: span 4; min-height: 200px; }
+  .gallery-item:nth-child(5) { grid-column: span 4; min-height: 200px; }
+
+  .gallery-placeholder {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px; padding: 20px; text-align: center;
+  }
+
+  .gallery-placeholder-icon { font-size: 2rem; opacity: 0.3; }
+
+  .gallery-placeholder-text {
+    font-size: 0.75rem;
+    color: var(--grey);
+    font-family: 'Space Mono', monospace;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+  }
+
+  .gallery-placeholder-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+  }
+
+  /* ─── BOOK ─── */
+  #book {
+    background: var(--black);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #book::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(200,240,96,0.06) 0%, transparent 70%);
+  }
+
+  .book-content { position: relative; z-index: 1; }
+
+  .book-content h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 16px; }
+
+  .book-content p {
+    color: var(--grey);
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .book-ctas {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--wa-green);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-wa:hover {
+    background: #1eb855;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+  }
+
+  /* WhatsApp SVG icon */
+  .wa-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid var(--border);
+    padding: 50px 5% 32px;
+  }
+
+  .footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .footer-brand p {
+    color: var(--grey);
+    font-size: 0.88rem;
+    margin-top: 14px;
+    max-width: 280px;
+    line-height: 1.7;
+  }
+
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-col a {
+    font-size: 0.85rem;
+    color: var(--grey);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--lime); }
+
+  .social-links {
+    display: flex; gap: 12px; margin-top: 4px;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    background: var(--mid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--grey);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .social-btn:hover { border-color: var(--lime); color: var(--lime); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: #555;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .footer-copy span { color: var(--lime); }
+
+  /* ─── FLOATING WA ─── */
+  .float-wa {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    z-index: 200;
+    width: 56px; height: 56px;
+    background: var(--wa-green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: float-pulse 3s ease-in-out infinite;
+  }
+
+  .float-wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+  }
+
+  @keyframes float-pulse {
+    0%,100% { box-shadow: 0 4px 24px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 40px rgba(37,211,102,0.65); }
+  }
+
+  .float-wa svg { width: 28px; height: 28px; }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--charcoal); }
+
+  .faq-list { margin-top: 50px; display: flex; flex-direction: column; gap: 2px; }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+
+  .faq-q {
+    width: 100%; text-align: left;
+    background: var(--dark);
+    border: none; cursor: pointer;
+    padding: 20px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--white);
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: var(--mid); }
+
+  .faq-arrow {
+    color: var(--lime);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    background: var(--charcoal);
+    font-size: 0.88rem;
+    color: var(--grey);
+    line-height: 1.7;
+    padding: 0 24px;
+  }
+
+  .faq-item.open .faq-a { max-height: 200px; padding: 16px 24px; }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    section { padding: 70px 5%; }
+
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { min-height: 260px; }
+
+    .gallery-item:nth-child(1) { grid-column: span 12; }
+    .gallery-item:nth-child(2) { grid-column: span 12; }
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) { grid-column: span 6; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+
+    .bundle-card { padding: 32px 24px; }
+
+    .trust-strip { gap: 16px; }
+    .trust-sep { display: none; }
+
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-item:nth-child(3),
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) { grid-column: span 12; }
+  }
+
+  /* counter animation */
+  .counter { display: inline-block; }
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/447742012353" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <svg class="nav-logo-icon" viewBox="140 40 400 320" xmlns="http://www.w3.org/2000/svg">
+      <rect x="140" y="40" width="400" height="320" rx="18" fill="#0d0d0d"/>
+      <rect x="175" y="72" width="110" height="110" rx="6" fill="none" stroke="#e8e8e8" stroke-width="2.5"/>
+      <rect x="190" y="87" width="110" height="110" rx="6" fill="none" stroke="#c8f060" stroke-width="2"/>
+      <line x1="266" y1="72" x2="285" y2="72" stroke="#c8f060" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="285" y1="72" x2="285" y2="91" stroke="#c8f060" stroke-width="2.5" stroke-linecap="round"/>
+      <rect x="207" y="118" width="6" height="28" rx="3" fill="#c8f060"/>
+      <rect x="219" y="108" width="6" height="48" rx="3" fill="#c8f060"/>
+      <rect x="231" y="122" width="6" height="22" rx="3" fill="#c8f060"/>
+      <rect x="243" y="112" width="6" height="38" rx="3" fill="#c8f060"/>
+      <rect x="255" y="120" width="6" height="28" rx="3" fill="#c8f060"/>
+      <rect x="267" y="115" width="6" height="34" rx="3" fill="#c8f060"/>
+      <rect x="279" y="124" width="6" height="20" rx="3" fill="#e8e8e8"/>
+    </svg>
+    <div class="nav-logo-text">The Audio<br><span>Box</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#bundle">Bundles</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://wa.me/447742012353" target="_blank" class="nav-cta">Book Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#bundle" onclick="closeMenu()">Bundles</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="https://wa.me/447742012353" target="_blank" class="m-cta">📲 Book Now on WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-circles"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Gloucestershire's Premier Recording Studio</div>
+
+    <h1>
+      <span class="line1">Professional</span>
+      <span class="line2">Recording.</span>
+      <span class="line3">Mixing · Mastering · Artist Development</span>
+    </h1>
+
+    <p class="hero-sub">Helping over 250+ creatives across 4 years turn raw ideas into industry-ready music.</p>
+
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://wa.me/447742012353?text=Hi%2C%20I%27d%20like%20to%20book%20studio%20time%20at%20The%20Audio%20Box" target="_blank">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book Studio Time
+      </a>
+      <a class="btn-outline" href="#bundle">View Bundles ↓</a>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="trust-num"><span class="counter" data-target="250">0</span>+</div>
+        <div class="trust-label">Artists<br>Worked With</div>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-num"><span class="counter" data-target="4">0</span></div>
+        <div class="trust-label">Years<br>Experience</div>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <div class="trust-num">10+</div>
+        <div class="trust-label">Genres<br>Supported</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Waveform decoration -->
+  <div class="hero-waveform" aria-hidden="true">
+    <div class="wvbar" style="--h:12px; animation-duration:0.8s;"></div>
+    <div class="wvbar" style="--h:28px; animation-duration:1.1s; animation-delay:0.1s;"></div>
+    <div class="wvbar" style="--h:18px; animation-duration:0.9s; animation-delay:0.2s;"></div>
+    <div class="wvbar" style="--h:38px; animation-duration:1.3s; animation-delay:0.05s;"></div>
+    <div class="wvbar" style="--h:22px; animation-duration:0.7s; animation-delay:0.3s;"></div>
+    <div class="wvbar" style="--h:44px; animation-duration:1.0s; animation-delay:0.15s;"></div>
+    <div class="wvbar" style="--h:16px; animation-duration:1.2s; animation-delay:0.25s;"></div>
+    <div class="wvbar" style="--h:36px; animation-duration:0.85s; animation-delay:0.4s;"></div>
+    <div class="wvbar" style="--h:20px; animation-duration:1.1s; animation-delay:0.1s;"></div>
+    <div class="wvbar" style="--h:30px; animation-duration:0.95s; animation-delay:0.35s;"></div>
+    <div class="wvbar" style="--h:14px; animation-duration:1.15s; animation-delay:0.2s;"></div>
+    <div class="wvbar" style="--h:40px; animation-duration:0.75s; animation-delay:0.05s;"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="section-label">Who We Are</div>
+        <h2>Built For <em>Artists</em>, By Creatives</h2>
+        <p class="body-text">
+          The Audio Box is an affordable, professional recording studio dedicated to helping independent and upcoming artists grow within the music industry. Over 4 years we've worked with 250+ creatives — not just recording their music, but shaping their careers.
+        </p>
+        <p class="body-text" style="margin-top:16px;">
+          We don't just capture sound. We help artists gain skills, marketing knowledge, industry experience and the tools to build a sustainable music career from the ground up.
+        </p>
+        <div class="genre-chips" style="margin-top:24px;">
+          <div class="chip active">Hip-Hop</div>
+          <div class="chip active">R&B</div>
+          <div class="chip">House</div>
+          <div class="chip">Garage</div>
+          <div class="chip">Rock</div>
+          <div class="chip">Metal</div>
+          <div class="chip">Afrobeats</div>
+          <div class="chip">+ More</div>
+        </div>
+        <div class="about-stat-row" style="margin-top:28px;">
+          <div class="about-stat">
+            <span class="about-stat-n">250+</span>
+            <span class="about-stat-l">Creatives</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-n">4 Yrs</span>
+            <span class="about-stat-l">Experience</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-n">∞</span>
+            <span class="about-stat-l">Potential</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <svg viewBox="140 40 400 320" xmlns="http://www.w3.org/2000/svg">
+          <rect x="140" y="40" width="400" height="320" rx="18" fill="#0d0d0d"/>
+          <rect x="175" y="72" width="110" height="110" rx="6" fill="none" stroke="#e8e8e8" stroke-width="2.5"/>
+          <rect x="190" y="87" width="110" height="110" rx="6" fill="none" stroke="#c8f060" stroke-width="2"/>
+          <line x1="266" y1="72" x2="285" y2="72" stroke="#c8f060" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="285" y1="72" x2="285" y2="91" stroke="#c8f060" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="207" y="118" width="6" height="28" rx="3" fill="#c8f060"/>
+          <rect x="219" y="108" width="6" height="48" rx="3" fill="#c8f060"/>
+          <rect x="231" y="122" width="6" height="22" rx="3" fill="#c8f060"/>
+          <rect x="243" y="112" width="6" height="38" rx="3" fill="#c8f060"/>
+          <rect x="255" y="120" width="6" height="28" rx="3" fill="#c8f060"/>
+          <rect x="267" y="115" width="6" height="34" rx="3" fill="#c8f060"/>
+          <rect x="279" y="124" width="6" height="20" rx="3" fill="#e8e8e8"/>
+          <line x1="175" y1="200" x2="285" y2="200" stroke="#333" stroke-width="1"/>
+          <text x="175" y="228" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="26" fill="#e8e8e8" letter-spacing="1">THE AUDIO</text>
+          <text x="175" y="256" font-family="'Barlow Condensed', sans-serif" font-weight="900" font-size="26" fill="#c8f060" letter-spacing="2">BOX</text>
+          <text x="175" y="278" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">RECORDING STUDIO</text>
+          <rect x="395" y="60" width="130" height="280" rx="8" fill="#111" stroke="#222" stroke-width="1"/>
+          <rect x="405" y="72" width="110" height="65" rx="4" fill="#0a0a0a" stroke="#333" stroke-width="1"/>
+          <rect x="413" y="80" width="94" height="48" rx="2" fill="#1a1a1a"/>
+          <rect x="413" y="80" width="94" height="48" rx="2" fill="none" stroke="#c8f060" stroke-width="0.5" opacity="0.3"/>
+          <rect x="410" y="148" width="14" height="40" rx="7" fill="#333"/>
+          <rect x="413" y="151" width="8" height="34" rx="4" fill="#1a1a1a"/>
+          <rect x="416" y="154" width="2" height="28" rx="1" fill="#555"/>
+          <rect x="430" y="152" width="14" height="8" rx="2" fill="#c8f060" opacity="0.8"/>
+          <rect x="430" y="164" width="14" height="8" rx="2" fill="#333"/>
+          <rect x="430" y="176" width="14" height="8" rx="2" fill="#333"/>
+          <rect x="430" y="188" width="14" height="8" rx="2" fill="#c8f060" opacity="0.5"/>
+          <circle cx="470" cy="76" r="1.5" fill="#333"/>
+          <circle cx="484" cy="76" r="1.5" fill="#333"/>
+          <circle cx="498" cy="76" r="1.5" fill="#c8f060"/>
+          <circle cx="512" cy="76" r="1.5" fill="#333"/>
+          <circle cx="526" cy="76" r="1.5" fill="#333"/>
+          <circle cx="470" cy="90" r="1.5" fill="#333"/>
+          <circle cx="484" cy="90" r="1.5" fill="#c8f060"/>
+          <circle cx="498" cy="90" r="1.5" fill="#333"/>
+          <circle cx="512" cy="90" r="1.5" fill="#333"/>
+          <circle cx="526" cy="90" r="1.5" fill="#333"/>
+          <circle cx="470" cy="104" r="1.5" fill="#333"/>
+          <circle cx="484" cy="104" r="1.5" fill="#c8f060"/>
+          <circle cx="498" cy="104" r="1.5" fill="#333"/>
+          <circle cx="512" cy="104" r="1.5" fill="#333"/>
+          <circle cx="526" cy="104" r="1.5" fill="#333"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label reveal">What We Offer</div>
+    <h2 class="reveal">Our <em>Services</em></h2>
+    <p class="body-text reveal">Everything you need to go from idea to finished, industry-ready release — all under one roof.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">🎙️</div>
+        <h3>Studio Time</h3>
+        <p>Record in a professional environment with a qualified engineer by your side the whole session.</p>
+        <ul class="service-list">
+          <li>Professional recording engineer included</li>
+          <li>Neumann & Shure microphone options</li>
+          <li>Apollo interfaces for crystal clarity</li>
+          <li>Access to premium plugins</li>
+          <li>Recorded in Logic Pro X</li>
+          <li>High-quality acoustic environment</li>
+        </ul>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🎚️</div>
+        <h3>Mixing & Mastering</h3>
+        <p>Transform your raw recordings into a clean, punchy, streaming-ready release that stands up to any major label track.</p>
+        <ul class="service-list">
+          <li>Industry-quality sound enhancement</li>
+          <li>Clean, powerful, streaming-ready mixes</li>
+          <li>Balanced low-end and clarity</li>
+          <li>Loudness optimised for all platforms</li>
+        </ul>
+        <div class="service-price">From £150</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">📋</div>
+        <h3>23 Day Release Plan</h3>
+        <p>A one-time purchase that gives you a complete roadmap to release your music strategically and build real momentum.</p>
+        <ul class="service-list">
+          <li>Promotion structure built-in</li>
+          <li>Content planning calendar</li>
+          <li>Step-by-step release guidance</li>
+          <li>Social media strategy included</li>
+        </ul>
+        <div class="service-price">Just £25 — One-Time</div>
+        <div class="price-badge">BEST VALUE</div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🚀</div>
+        <h3>Artist Development</h3>
+        <p>We invest in you as an artist, not just a session. Build skills, gain knowledge and access real industry opportunities.</p>
+        <ul class="service-list">
+          <li>Digital marketing & paid ads</li>
+          <li>Social media scheduling & strategy</li>
+          <li>Access to funding & artist programs</li>
+          <li>Industry connections & mentoring</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<section id="bundle">
+  <div class="container">
+    <div class="section-label reveal">Most Popular</div>
+    <h2 class="reveal">The Launch <em>Bundle</em></h2>
+    <p class="body-text reveal">Everything you need to record, release and promote — in one affordable package.</p>
+
+    <div class="bundle-card reveal">
+      <div class="most-popular">Most Popular</div>
+      <div class="bundle-title">Artist Launch Bundle</div>
+      <div class="bundle-price">£350</div>
+      <ul class="bundle-includes">
+        <li>Track recorded to completion with professional engineer</li>
+        <li>Fully mixed & mastered to streaming standard</li>
+        <li>4 short-form content reels for TikTok, Reels & Shorts</li>
+        <li>Reels professionally edited and ready to post</li>
+        <li>Designed to launch your music and content immediately</li>
+      </ul>
+      <a class="btn-primary" href="https://wa.me/447742012353?text=Hi%2C%20I%27m%20interested%20in%20the%20Artist%20Launch%20Bundle%20for%20%C2%A3350" target="_blank" style="margin-top:8px; display:inline-flex;">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book Your Session
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-label reveal">Artists Say</div>
+    <h2 class="reveal">Real <em>Testimonials</em></h2>
+
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Best studio experience I've had. The engineer actually cares about your sound and helps you get the best performance out of the session.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">JD</div>
+          <div>
+            <div class="reviewer-name">Jordan D.</div>
+            <div class="reviewer-tag">Hip-Hop Artist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Professional sound and genuine support. They don't just record you and send you home — they actually invest in your growth as an artist.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">SK</div>
+          <div>
+            <div class="reviewer-name">Simone K.</div>
+            <div class="reviewer-tag">R&B Singer</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Helped me understand both the music side and the marketing side. The 23 Day Release Plan was a game changer for my first single launch.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">TM</div>
+          <div>
+            <div class="reviewer-name">Tyler M.</div>
+            <div class="reviewer-tag">Independent Artist</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Affordable without compromising on quality whatsoever. The mix they gave me sounded like something from a major label. Genuinely shocked.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">RA</div>
+          <div>
+            <div class="reviewer-name">Remi A.</div>
+            <div class="reviewer-tag">Garage / UK Rap</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">From tracking to mastering, the whole process was seamless. The Apollo setup in here is next level and you can hear it in the final product.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">CB</div>
+          <div>
+            <div class="reviewer-name">Callum B.</div>
+            <div class="reviewer-tag">Rock / Alternative</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Booked the Artist Launch Bundle and it covered everything — recording, mix, master and content reels ready to post. Worth every penny.</p>
+        <div class="reviewer">
+          <div class="reviewer-av">NP</div>
+          <div>
+            <div class="reviewer-name">Nia P.</div>
+            <div class="reviewer-tag">Afrobeats / House</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-label reveal">Behind The Glass</div>
+    <h2 class="reveal">Studio <em>Gallery</em></h2>
+    <p class="body-text reveal">A look inside The Audio Box. Replace these placeholders with your own studio photos to bring this to life.</p>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🎙️</div>
+          <div class="gallery-placeholder-label">Studio Main Room</div>
+          <div class="gallery-placeholder-text">// Replace with studio photo</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🎚️</div>
+          <div class="gallery-placeholder-label">Mixing Console</div>
+          <div class="gallery-placeholder-text">// Replace with desk photo</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🎤</div>
+          <div class="gallery-placeholder-label">Recording Session</div>
+          <div class="gallery-placeholder-text">// Replace with artist photo</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🎧</div>
+          <div class="gallery-placeholder-label">Artist in Booth</div>
+          <div class="gallery-placeholder-text">// Replace with booth photo</div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <div class="gallery-placeholder-icon">🎵</div>
+          <div class="gallery-placeholder-label">Behind The Scenes</div>
+          <div class="gallery-placeholder-text">// Replace with BTS photo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label reveal">Got Questions</div>
+    <h2 class="reveal">Frequently <em>Asked</em></h2>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I book a session?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Simply message us on WhatsApp using the button below and we'll get you booked in. We'll discuss your project, find a time that works and get you in the studio fast.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's included in studio time?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Every studio session includes a professional recording engineer, access to our Neumann and Shure microphone selection, Apollo interfaces, premium plugin suite and Logic Pro X. You focus on the performance — we handle the technical side.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need experience in a studio?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Absolutely not. The Audio Box is built for artists at every stage. Whether this is your first time in a studio or your hundredth, we'll make you feel comfortable and help you get the best out of your session.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What genres do you work with?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">We work across all genres including Hip-Hop, R&B, House, Garage, Rock, Metal, Afrobeats and everything in between. Our engineers are experienced across the spectrum of modern and classic music styles.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's the Artist Launch Bundle?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">For £350 you get your track recorded to completion, fully mixed and mastered, plus 4 professionally edited short-form content reels ready to post on TikTok, Instagram Reels and YouTube Shorts. Everything you need to release and promote your music in one go.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can you help with marketing and release strategy?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Yes! We offer digital marketing, social media scheduling, artist development and access to funding opportunities. Our 23 Day Release Plan booklet (just £25) also gives you a complete step-by-step release strategy you can use independently.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOK NOW -->
+<section id="book">
+  <div class="container">
+    <div class="book-content">
+      <div class="section-label reveal" style="justify-content:center;">Let's Create</div>
+      <h2 class="reveal">Ready To Create Your<br><em>Next Record?</em></h2>
+      <p class="reveal">Book directly via WhatsApp. No complicated forms. No waiting. Just real music, made fast.</p>
+      <div class="book-ctas reveal">
+        <a class="btn-wa" href="https://wa.me/447742012353?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20The%20Audio%20Box" target="_blank">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book via WhatsApp
+        </a>
+        <a class="btn-outline" href="https://wa.me/447742012353?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20your%20bundles%20at%20The%20Audio%20Box" target="_blank">Enquire About Bundles</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#hero" style="display:inline-flex;">
+        <svg style="width:44px;height:44px;" viewBox="140 40 400 320" xmlns="http://www.w3.org/2000/svg">
+          <rect x="140" y="40" width="400" height="320" rx="18" fill="#0d0d0d"/>
+          <rect x="175" y="72" width="110" height="110" rx="6" fill="none" stroke="#e8e8e8" stroke-width="2.5"/>
+          <rect x="190" y="87" width="110" height="110" rx="6" fill="none" stroke="#c8f060" stroke-width="2"/>
+          <rect x="207" y="118" width="6" height="28" rx="3" fill="#c8f060"/>
+          <rect x="219" y="108" width="6" height="48" rx="3" fill="#c8f060"/>
+          <rect x="231" y="122" width="6" height="22" rx="3" fill="#c8f060"/>
+          <rect x="243" y="112" width="6" height="38" rx="3" fill="#c8f060"/>
+          <rect x="255" y="120" width="6" height="28" rx="3" fill="#c8f060"/>
+          <rect x="267" y="115" width="6" height="34" rx="3" fill="#c8f060"/>
+          <rect x="279" y="124" width="6" height="20" rx="3" fill="#e8e8e8"/>
+        </svg>
+        <div class="nav-logo-text" style="font-size:1.1rem;">The Audio<br><span>Box</span></div>
+      </a>
+      <p>Professional recording studio helping independent and upcoming artists create industry-ready music and build sustainable careers.</p>
+      <div class="social-links" style="margin-top:16px;">
+        <a class="social-btn" href="#" aria-label="Instagram" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a class="social-btn" href="#" aria-label="TikTok" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
+        </a>
+        <a class="social-btn" href="https://wa.me/447742012353" target="_blank" aria-label="WhatsApp" title="WhatsApp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#bundle">Bundles</a></li>
+        <li><a href="#reviews">Testimonials</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/447742012353" target="_blank">📲 WhatsApp Us</a></li>
+        <li><a href="https://wa.me/447742012353?text=Hi%2C%20I%27d%20like%20to%20book%20studio%20time" target="_blank">Book Studio Time</a></li>
+        <li><a href="https://wa.me/447742012353?text=Hi%2C%20I%27m%20interested%20in%20the%20Artist%20Launch%20Bundle" target="_blank">Artist Launch Bundle</a></li>
+        <li><a href="https://wa.me/447742012353?text=Hi%2C%20I%27m%20interested%20in%20the%2023%20Day%20Release%20Plan" target="_blank">23 Day Release Plan</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 <span>The Audio Box</span>. All rights reserved.</div>
+    <div class="footer-copy">Professional Recording Studio · Gloucestershire</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Animated counters
+  function animateCounter(el, target, duration = 1800) {
+    let start = 0;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.dataset.target);
+        animateCounter(e.target, target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+  // Sticky nav enhancement
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(8,8,8,0.98)'
+      : 'rgba(8,8,8,0.92)';
+  });
+</script>
+</body>
+</html>
